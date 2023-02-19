@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app">
     <NuxtLayout>
       <NuxtPage/>
     </NuxtLayout>
@@ -8,7 +8,16 @@
 
 <script setup>
 import { useAppStore } from "~/store/appStore" ;
+import { useLocationStore } from "~/store/locationStore";
+import {useCountInfoStore} from "~/store/countInfoStore";
+
 const {setDeviceDesktop, setDeviceMobile} = useAppStore()
+const {fetchRegions} = useLocationStore()
+const {fetchCountInfo} = useCountInfoStore()
+
+await fetchRegions();
+await fetchCountInfo();
+
 
 onMounted(async () => {
   if (innerWidth > 576) {
@@ -29,3 +38,12 @@ onMounted(async () => {
   })
 })
 </script>
+
+<style lang="scss">
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+</style>
