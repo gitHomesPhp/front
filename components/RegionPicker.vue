@@ -26,12 +26,23 @@ const { setCurrentRegion } = useLocationStore()
 
 const isOpen = ref(false)
 
+const regionCookie = useCookie('region')
+
+console.log(regionCookie.value);
+
+if (regionCookie.value) {
+  await setCurrentRegion(regionCookie.value)
+} else {
+  regionCookie.value = current_region.value;
+}
+
 const toggle = () => {
   isOpen.value = !isOpen.value
 }
 const select = async (region) => {
   await setCurrentRegion(region)
   isOpen.value = false
+  regionCookie.value = current_region.value;
 }
 
 </script>

@@ -2,7 +2,11 @@
   <div class="wrapper">
     <nav class="nav">
       <div class="nav__item">Устройства</div>
-      <div class="nav__item">Бренды</div>
+      <div class="nav__item">
+        <NuxtLink :to="`/${current_region.slug}/brand`">
+          Бренды
+        </NuxtLink>
+      </div>
       <div class="nav__item">Сервисные центры</div>
     </nav>
     <Transition name="slide-fade">
@@ -31,6 +35,10 @@
 </template>
 
 <script setup>
+import {useLocationStore} from "~/store/locationStore";
+import {storeToRefs} from "pinia";
+const {current_region} = storeToRefs(useLocationStore())
+
 defineProps({
   isOpen: { type: Boolean, default: false },
 })

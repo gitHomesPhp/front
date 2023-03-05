@@ -5,6 +5,9 @@
         Поиск лучших сервисных центров Вашего города
       </h1>
     </div>
+    <div>
+      <TheFilter />
+    </div>
     <div class="wrapper">
       <div class="site-info">
         <div class="site-info__reviews site-info__item">
@@ -37,10 +40,15 @@
           </div>
           <div class="site-info__data">
             <div class="site-info__count">{{company_count}}</div>
-            <span>компаний</span>
+            <span>сервисгых центров</span>
           </div>
         </div>
       </div>
+    </div>
+    <div class="enterprise">
+      <span class="h2">
+        ОБРАЩАЙТЕСЬ ТОЛЬКО К ПРОВЕРЕННЫМ СЕРВИСНЫМ ЦЕНТРАМ
+      </span>
     </div>
     <BrandsWidget />
   </div>
@@ -57,13 +65,13 @@ const {
 
 <style scoped lang="scss">
 .h1 {
-  padding: 1rem;
+  padding: .5rem;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 .wrapper {
-  padding: 1rem;
+  padding: .5rem;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -73,11 +81,13 @@ const {
   align-items: center;
   &__item {
     display: flex;
+    align-items: center;
   }
   &__data {
     display: flex;
     flex-direction: column;
     padding: 1rem;
+    align-items: center;
     span {
       color: #4e4e4e;
     }
@@ -88,6 +98,14 @@ const {
   }
   &__icon {
     padding: 1rem;
+  }
+}
+.enterprise {
+  font-size: 40px;
+  text-align: center;
+  padding: 1rem;
+  @media (max-width: 576px) {
+    font-size: 32px;
   }
 }
 </style>

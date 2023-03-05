@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="header__logo header__item pointer">
-      <img src="~/assets/svg/logo.svg" alt="logo" width="300">
+      <NuxtLink to="/"><img src="~/assets/svg/logo.svg" alt="logo" width="300"></NuxtLink>
     </div>
 
       <div v-if="deviceCookie === 'desktop'" class="header__item">

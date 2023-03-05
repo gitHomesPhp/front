@@ -9,14 +9,17 @@
 <script setup>
 import { useAppStore } from "~/store/appStore" ;
 import { useLocationStore } from "~/store/locationStore";
-import {useCountInfoStore} from "~/store/countInfoStore";
+import { useCountInfoStore } from "~/store/countInfoStore";
+import { useBrandStore } from "~/store/brandStore"
 
 const {setDeviceDesktop, setDeviceMobile} = useAppStore()
 const {fetchRegions} = useLocationStore()
 const {fetchCountInfo} = useCountInfoStore()
+const {fetchBrands} = useBrandStore()
 
 await fetchRegions();
 await fetchCountInfo();
+await fetchBrands();
 
 
 onMounted(async () => {
